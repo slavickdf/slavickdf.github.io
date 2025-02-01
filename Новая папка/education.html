@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение Сергеева Вячеслава</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXk0Z2xpaHdmbHI2bmxwNzd4Zmh3cmxmeTlwbzFianFsOTdvaDJobyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HyOOyynWxMxig/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            color: rgb(213, 249, 255);
+            width: 80%;
+            max-width: 1600px;
+            margin: auto;
+            overflow: hidden;
+            background: rgba(51, 51, 51, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+            animation: slideIn 2s ease-in-out;
+            margin-top: 200px;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        header {
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: #9c27b0 3px solid;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            background: linear-gradient(135deg, #000000c9 0%, #83019a 50%, #000000c9);
+            animation: fadeInHeader 2s ease-in-out;
+            color: rgb(211, 211, 211);
+        }
+        @keyframes fadeInHeader {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: rgba(1, 204, 204, 0.596);
+        }
+        .profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .profile img {
+            opacity: 0.8;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: fadeInImage 2s ease-in-out;
+        }
+        @keyframes fadeInImage {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 0.8; transform: scale(1); }
+        }
+        .about, .interests, .video-blogging, .education, .personal {
+            margin: 20px 0;
+        }
+        .education-content {
+            margin: 20px 0;
+        }
+        .education-content ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            animation: fadeInList 2s ease-in-out;
+        }
+        @keyframes fadeInList {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .education-content ul li {
+            background: #9c27b0;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .education-content ul li:hover {
+            transform: scale(1.02);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #6a0dad;
+            color: white;
+            border-top: #9c27b0 3px solid;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            animation: fadeInFooter 2s ease-in-out;
+        }
+        @keyframes fadeInFooter {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+        header nav a {
+            padding: 10px 20px;
+            background: #9c27b0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+        }
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        header nav a:hover {
+            background: #881e93;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        @media(max-width: 900px) {
+            body {
+                background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZiZXk5amJ2bnU2bjg3bjk4OXlmdWw5NnA2NG4zcWxiejc0eDA2ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L0tlc1OWJXRl1mMN5D/giphy.gif');
+            }
+            .container {
+                margin-top: 10px;
+            }
+        }
+        .active{
+    text-decoration: line-through;
+    box-shadow: 0px 3px 3px 3px #300ec4;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Обучение Сергеева Вячеслава</h1>
+        <nav>
+            <a href="index.html">О себе</a>
+            <a href="interst.html">Увлечения</a>
+            <a href="index2.html">Видеоблогинг</a>
+            <a class="active" href="education.html">Обучение</a>
+            <a href="opros.html">Опросник</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="profile">
+            <img src="photo_2025-02-02_00-59-22.jpg" alt="Фото Павла">
+            <div>
+                <p><strong>Дата рождения:</strong> 2008 год</p>
+                <p><strong>Колледж:</strong> Технологичесий колледж номер 21</p>
+            </div>
+        </div>
+        <div class="education-content">
+            <h2>Обучение</h2>
+            <ul>
+                <li>
+                    <strong>Школа №1795 Лосиноостровская:</strong>
+                    <p>Я учился в школе №1795, расположенной в районе Лосиноостровский в Москве. Это образовательное учреждение известно своим высоким уровнем преподавания и активной внеклассной жизнью. В школе я получил базовые знания по всем предметам, участвовал в олимпиадах и спортивных соревнованиях.</p>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    <strong>Технологический колледж №21 (ТК21):</strong>
+                    <p>Сейчас я учусь в Технологическом колледже №21, где получает специальность программиста. я изучает языки программирования, разработку веб-приложений, базы данных и другие современные технологии. Колледж предоставляет отличные возможности для практического применения знаний, и я активно участвует в проектах и хакатонах.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

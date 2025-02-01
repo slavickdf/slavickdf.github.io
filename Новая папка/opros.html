@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник | Сергеева Вячеслава</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXk0Z2xpaHdmbHI2bmxwNzd4Zmh3cmxmeTlwbzFianFsOTdvaDJobyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HyOOyynWxMxig/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            color: rgb(213, 249, 255);
+            width: 80%;
+            max-width: 1600px;
+            margin: auto;
+            overflow: hidden;
+            background: rgba(51, 51, 51, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+            animation: slideIn 2s ease-in-out;
+            margin-top: 200px;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        header {
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: #9c27b0 3px solid;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            background: linear-gradient(135deg, #000000c9 0%, #83019a 50%, #000000c9);
+            animation: fadeInHeader 2s ease-in-out;
+            color: rgb(211, 211, 211);
+        }
+        @keyframes fadeInHeader {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: rgba(1, 204, 204, 0.596);
+        }
+        .profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .profile img {
+            opacity: 0.8;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: fadeInImage 2s ease-in-out;
+        }
+        @keyframes fadeInImage {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 0.8; transform: scale(1); }
+        }
+        .survey-form {
+            margin: 20px 0;
+        }
+        .survey-form h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #9c27b0;
+        }
+        .survey-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .survey-form input[type="radio"] {
+            margin-right: 10px;
+        }
+        .survey-form textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            resize: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: background 0.3s ease-in-out;
+        }
+        .survey-form textarea:focus {
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+        .survey-form button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #9c27b0;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .survey-form button:hover {
+            background: #881e93;
+            transform: scale(1.1);
+        }
+        .survey-form .question-group {
+            margin-bottom: 30px;
+        }
+        .survey-form .question-group:last-child {
+            margin-bottom: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #6a0dad;
+            color: white;
+            border-top: #9c27b0 3px solid;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            animation: fadeInFooter 2s ease-in-out;
+        }
+        @keyframes fadeInFooter {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+        header nav a {
+            padding: 10px 20px;
+            background: #9c27b0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+        }
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        header nav a:hover {
+            background: #881e93;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        @media(max-width: 900px) {
+            body {
+                background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZiZXk5amJ2bnU2bjg3bjk4OXlmdWw5NnA2NG4zcWxiejc0eDA2ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L0tlc1OWJXRl1mMN5D/giphy.gif');
+            }
+            .container {
+                margin-top: 10px;
+            }
+        }
+        .active{
+    text-decoration: line-through;
+    box-shadow: 0px 3px 3px 3px #300ec4;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Опросник</h1>
+        <nav>
+            <a href="index.html">О себе</a>
+            <a href="index.html#interests">Увлечения</a>
+            <a href="videoblogging.html">Видеоблогинг</a>
+            <a href="education.html">Обучение</a>
+            <a class="active" href="survey.html">Опросник</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="profile">
+            <img src="photo_2025-02-02_00-59-22.jpg" alt="Фото Павла">
+            <div>
+                <p><strong>Дата рождения:</strong> 2008 год</p>
+                <p><strong>Колледж:</strong> ТК21</p>
+            </div>
+        </div>
+        <div class="survey-form">
+            <h2>Оставьте ваше мнение о сайте</h2>
+            <form action="#" method="post">
+                <div class="question-group">
+                    <label>1. Насколько вам понравился дизайн сайта?</label>
+                    <label>
+                        <input type="radio" name="design-rating" value="excellent" required>
+                        Отлично
+                    </label>
+                    <label>
+                        <input type="radio" name="design-rating" value="good">
+                        Хорошо
+                    </label>
+                    <label>
+                        <input type="radio" name="design-rating" value="average">
+                        Удовлетворительно
+                    </label>
+                    <label>
+                        <input type="radio" name="design-rating" value="poor">
+                        Плохо
+                    </label>
+                </div>
+                <div class="question-group">
+                    <label>2. Насколько сайт удобен для навигации?</label>
+                    <label>
+                        <input type="radio" name="navigation-rating" value="excellent" required>
+                        Очень удобно
+                    </label>
+                    <label>
+                        <input type="radio" name="navigation-rating" value="good">
+                        Удобно
+                    </label>
+                    <label>
+                        <input type="radio" name="navigation-rating" value="average">
+                        Средне
+                    </label>
+                    <label>
+                        <input type="radio" name="navigation-rating" value="poor">
+                        Неудобно
+                    </label>
+                </div>
+                <div class="question-group">
+                    <label>3. Насколько информация на сайте полезна?</label>
+                    <label>
+                        <input type="radio" name="info-rating" value="excellent" required>
+                        Очень полезно
+                    </label>
+                    <label>
+                        <input type="radio" name="info-rating" value="good">
+                        Полезно
+                    </label>
+                    <label>
+                        <input type="radio" name="info-rating" value="average">
+                        Средне
+                    </label>
+                    <label>
+                        <input type="radio" name="info-rating" value="poor">
+                        Не полезно
+                    </label>
+                </div>
+                <div class="question-group">
+                    <label>4. Как вы оцениваете общее впечатление от сайта?</label>
+                    <label>
+                        <input type="radio" name="overall-rating" value="excellent" required>
+                        Отлично
+                    </label>
+                    <label>
+                        <input type="radio" name="overall-rating" value="good">
+                        Хорошо
+                    </label>
+                    <label>
+                        <input type="radio" name="overall-rating" value="average">
+                        Удовлетворительно
+                    </label>
+                    <label>
+                        <input type="radio" name="overall-rating" value="poor">
+                        Плохо
+                    </label>
+                </div>
+                <div class="question-group">
+                    <label>5. Оставьте ваш отзыв или пожелания по улучшению сайта:</label>
+                    <textarea name="feedback" placeholder="Напишите ваш отзыв здесь..."></textarea>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
